@@ -1,0 +1,23 @@
+<app-hello name="{{ name }}"></app-hello>
+<p>
+  Please enter a fibonacci number
+</p>
+
+<form #f="ngForm" (ngSubmit)="onSubmit()" >
+
+<input type="text" name="fibNum" [(ngModel)]="fibNum" required >
+<button type="submit" [disabled]="!f.form.valid">Submit</button>
+<br />
+<input type="radio" name="choice" [(ngModel)]="choice" value="recursive" checked>Use Recursive
+<input type="radio" name="choice" [(ngModel)]="choice" value="forloop" >Use For Loop
+</form>
+
+<code>
+  <pre>
+    nummber:{{fibNum}}
+    choice:{{choice}}
+  </pre>
+</code>
+<div *ngIf="fibNum>=0">
+  {{result}}
+</div>
